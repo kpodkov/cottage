@@ -1,0 +1,5 @@
+loguru==0.5.3
+click==8.0.3
+pandas==1.4.1
+openpyxl==3.0.9
+python-slugify==6.1.1
