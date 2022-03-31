@@ -1,6 +1,6 @@
 import click
 
-from reservation.commands import reservation
+from .reservation.commands import reservation
 
 
 @click.group(invoke_without_command=True)

@@ -7,7 +7,7 @@ from random import seed, randint
 from datetime import datetime
 from pathlib import Path
 
-from common.colors import TerminalColours
+from ..common.colors import TerminalColours
 
 
 @click.group(help="Reservation operations", invoke_without_command=False)

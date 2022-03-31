@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/kpodkov/cottage",
     packages=find_packages(),
-    install_requires=['click', 'tenacity', 'pandas'],
+    install_requires=['click==8.0.3', 'loguru==0.5.3', 'pandas==1.4.1', 'python-slugify==6.1.1', 'openpyxl==3.0.9'],
     entry_points='''
         [console_scripts]
         cottage=src.app:main
