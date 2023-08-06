@@ -38,19 +38,24 @@ def create_overview_excel(context: click.Context, csv_path: str, output_path: st
             lambda value: datetime.strptime(value, '%m-%d-%Y').strftime('%Y-%m-%d'))
         input_df['End date'] = input_df['End date'].map(
             lambda value: datetime.strptime(value, '%m-%d-%Y').strftime('%Y-%m-%d'))
+        input_df['# of People'] = input_df.apply(
+            lambda row: (row['# of adults'] + row['# of children'] + row['# of infants']), axis=1)
 
         df_output = pandas.DataFrame()
         df_output['Guest Name'] = input_df['Guest name']
+        df_output['# of People'] = input_df['# of People']
         df_output['Start DOW'] = input_df['start_dow']
         df_output['Start Date'] = input_df['Start date']
         df_output['End Date'] = input_df['End date']
         df_output['END DOW'] = input_df['end_dow']
+        df_output['# of Nights'] = input_df['num_of_nights']
         df_output['Door Code'] = input_df['door_code']
         df_output['Total Payout'] = input_df['Earnings']
         df_output['Email'] = ''
         df_output['House Manual Sent'] = ''
         df_output['Door Code Sent'] = ''
         df_output['Special Notes'] = ''
+
         return df_output
 
     if os.path.exists(csv_path):
